@@ -45,30 +45,31 @@ class ContactList extends React.Component {
     console.log("filter"+filteredContacts)
     return (
       <div>
-      <input type="text"
-        placeholder="Search"
-        // Value is set at the top with the contructor
-        value={this.state.search}
-        // on Change event is using a function everytime the text changes.
-        // We use bind(this) to this updateSearch function because this is not refering to the constructor
-        // and does not recognize the state anymore
-        onChange={this.updateSearch.bind(this)}
-        />
-        <form onSubmit={this.addContact.bind(this)}>
-          <input type="text" ref="name"/><br/>
-          <input type="text" ref="phone"/><br />
-          <input type="text" ref="email"/><br />
-          <button type="submit">Add new submit</button>
-        </form>
-        <ul>
-        {/* we loop through the contacts array and send pass it to the contact Component */}
-        {/* We Must attach a key to the component inorder for react to keep track */}
-        {filteredContacts.map((contactElement)=>{
-          return <Contact contact={contactElement} key={contactElement.id}/>
-        })
-        }
-        </ul>
-
+        <div className="col-md-3">
+          <input className="form-control"
+           type="text"
+            placeholder="Search"
+            // Value is set at the top with the contructor
+            value={this.state.search}
+            // on Change event is using a function everytime the text changes.
+            // We use bind(this) to this updateSearch function because this is not refering to the constructor
+            // and does not recognize the state anymore
+            onChange={this.updateSearch.bind(this)}
+            />
+            {/* we loop through the contacts array and send pass it to the contact Component */}
+            {/* We Must attach a key to the component inorder for react to keep track */}
+            {filteredContacts.map((contactElement)=>{
+              return <Contact contact={contactElement} key={contactElement.id}/>
+            })}
+        </div>
+          <div className="col-md-9">
+            <form className="form-inline pull-xs-left" onSubmit={this.addContact.bind(this)}>
+              <input className="form-control" placeholder="Name" type="text" ref="name"/>
+              <input className="form-control" type="text" placeholder="Phone" ref="phone"/>
+              <input className="form-control" type="text" placeholder="Email" ref="email"/>
+              <button className="btn btn-outline-success" type="submit">Add new Contact</button>
+            </form>
+          </div>
       </div>
     )
   }

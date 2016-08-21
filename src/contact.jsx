@@ -4,11 +4,11 @@ import { render } from 'react-dom';
 class Contact extends React.Component {
   render(){
     return (
-      <li>
-        {this.props.contact.name}<br />
-        {this.props.contact.phone}<br />
-        {this.props.contact.email}<br />
-      </li>
+        <div className="card card-block">
+        <h4 className="card-title">{this.props.contact.name}</h4>
+        <p className="card-text">{this.props.contact.phone}</p>
+        <p className="card-text">{this.props.contact.email}</p>
+        </div>
     )
   }
 }
