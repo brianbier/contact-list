@@ -3,6 +3,7 @@ import styles from './index.css';
 import React from 'react';
 import { render } from 'react-dom';
 import ContactList from './contactList';
+import TodoList from './todoList';
 
 let contacts = [{
   id: 1,
@@ -14,17 +15,16 @@ let contacts = [{
   name: 'Jane',
   phone: '444-444-4444',
   email: 'briansbier@gmail.com'
-},{
-  id: 3,
-  name: 'Joey',
-  phone: '444-444-4444',
-  email: 'briansbier@gmail.com'
-},{
-  id:4,
-  name: 'Mark',
-  phone: '444-444-4444',
-  email: 'briansbier@gmail.com'
 }]
+
+let todos = [{
+  id: 1,
+  task: 'Finish This React App'
+},{
+  id: 2,
+  task: 'Do Another App'
+}]
+
 
 class App extends React.Component {
   render(){
@@ -32,6 +32,7 @@ class App extends React.Component {
       <div className="container">
         <div className="row">
           <ContactList contacts={this.props.contacts} />
+          <TodoList todos={this.props.todos}/>
         </div>
       </div>
 
@@ -39,4 +40,4 @@ class App extends React.Component {
   }
 }
 
-render(<App contacts={contacts} />,document.getElementById('app'))
+render(<App contacts={contacts} todos={todos}/>,document.getElementById('app'))

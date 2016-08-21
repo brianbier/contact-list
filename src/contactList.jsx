@@ -45,7 +45,7 @@ class ContactList extends React.Component {
     console.log("filter"+filteredContacts)
     return (
       <div>
-        <div className="col-md-3">
+        <div className="col-md-4">
           <input className="form-control"
            type="text"
             placeholder="Search"
@@ -62,7 +62,7 @@ class ContactList extends React.Component {
               return <Contact contact={contactElement} key={contactElement.id}/>
             })}
         </div>
-          <div className="col-md-9">
+          <div className="col-md-4">
             <form className="form-inline pull-xs-left" onSubmit={this.addContact.bind(this)}>
               <input className="form-control" placeholder="Name" type="text" ref="name"/>
               <input className="form-control" type="text" placeholder="Phone" ref="phone"/>
