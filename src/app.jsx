@@ -17,12 +17,16 @@ let contacts = [{
   email: 'briansbier@gmail.com'
 }]
 
+
 let todos = [{
   id: 1,
   task: 'Finish This React App'
 },{
   id: 2,
   task: 'Do Another App'
+},{
+  id: 3,
+  task: 'Pass data from the parent to the child and reverse'
 }]
 
 

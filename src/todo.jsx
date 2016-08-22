@@ -2,30 +2,23 @@ import React from 'react';
 import { render } from 'react-dom';
 
 class Todo extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      todoElement: props.todo
-    }
-  }
   completed(event){
-    let todos = this.state.todoElement
-    let index = todos.id
-    console.log(this.refs.complete)
-    this.setState({
-      todoElement: ''
-    })
+    let self = this
+    let task = self.props.todo.task
+    let id = self.props.todo.id
+    this.props.onCheckedTask({id:id,task:task})
   }
   render(){
-
     return(
-      <div>
-        <input
-        className="form-check-input"
-        type="checkbox"
-        ref="complete"
-        onChange={this.completed.bind(this)}/>
-        {this.state.todoElement.task}
+      <div className="form-check">
+        <label className="form-check-label">
+          <input
+          className="form-check-input"
+          type="checkbox"
+          ref="complete"
+          onChange={this.completed.bind(this)}/>
+          {this.props.todo.task}
+        </label>
       </div>
     )
   }
